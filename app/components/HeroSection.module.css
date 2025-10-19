@@ -1,0 +1,57 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 1rem;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.title span {
+  color: var(--color-accent);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.buttonPrimary {
+  background-color: var(--color-accent);
+  color: var(--bg-primary);
+  padding: 0.8rem 2rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-right: 1rem;
+}
+
+.buttonPrimary:hover {
+  background-color: #7dd3fc; /* Sedikit lebih terang */
+}
+
+.buttonSecondary {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  padding: 0.8rem 2rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.buttonSecondary:hover {
+  background-color: var(--color-accent);
+  color: var(--bg-primary);
+}
