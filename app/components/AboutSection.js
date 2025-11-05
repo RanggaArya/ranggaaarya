@@ -19,7 +19,7 @@ const AboutSection = () => {
         <div className={styles.contentWrapper}>
           <div className={styles.avatarWrapper}>
             <Image
-              src="/avatar.png"
+              src="/profil.jpg"
               alt="Foto Profil"
               width={256}
               height={256}

@@ -1,4 +1,7 @@
+'use client';
 import Link from 'next/link';
+import { useState } from 'react'; // Import hook useState
+import { FaBars, FaTimes } from 'react-icons/fa'; // Import ikon
 import styles from './Navbar.module.css'; // Import CSS Module
 
 const Navbar = () => {

@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaUser } from 'react-ico
 import { MdEmail, MdMessage } from 'react-icons/md';
 import styles from './ContactSection.module.css';
 import { useInView } from 'react-intersection-observer';
-import emailjs from '@emailjs/browser'; // <-- install dulu: npm install @emailjs/browser
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -33,14 +33,14 @@ const ContactSection = () => {
 
     emailjs
       .send(
-        'service_9m6n4ji',      // ganti dengan service ID EmailJS kamu
-        'template_lejnlrg',     // ganti dengan template ID EmailJS kamu
+        'service_9m6n4ji',
+        'template_lejnlrg',
         {
           name: formData.name,
           email: formData.email,
           message: formData.message,
         },
-        'GsUedagYhnFsx1XO7'       // ganti dengan public key EmailJS kamu
+        'GsUedagYhnFsx1XO7'
       )
       .then(
         () => {
@@ -76,9 +76,6 @@ const ContactSection = () => {
           <a href="https://linkedin.com/in/ranggaaarya" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedin size={40} />
           </a>
-          <a href="https://instagram.com/ranggaaarya" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <FaInstagram size={40} />
-          </a>
           <a href="mailto:ranggaaarya0110@gmail.com" aria-label="Email">
             <FaEnvelope size={40} />
           </a>
@@ -87,7 +84,7 @@ const ContactSection = () => {
         {/* Form Kontak */}
         <form onSubmit={handleSubmit} className={styles.contactForm}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '0.5rem', width: '100%' }}>
-            <span><FaUser size={15}/></span> Name
+            <span><FaUser size={15} /></span> Name
           </div>
           <input
             type="text"
@@ -98,7 +95,7 @@ const ContactSection = () => {
             required
           />
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '0.5rem', width: '100%' }}>
-            <span><MdEmail size={15}/></span> Email
+            <span><MdEmail size={15} /></span> Email
           </div>
           <input
             type="email"
@@ -109,7 +106,7 @@ const ContactSection = () => {
             required
           />
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '0.5rem', width: '100%' }}>
-            <span><MdMessage size={15}/></span> Message
+            <span><MdMessage size={15} /></span> Message
           </div>
           <textarea
             name="message"
