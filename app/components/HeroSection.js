@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section id="hero" className={styles.hero}>
       <div className={styles.heroContent}>
         <h2 className={styles.title}>
-          Hello! &nbsp;I'm
+          Hello! &nbsp;I&apos;m
         </h2>
         <h1 className={styles.title}>
           <span className="gradient-text">Rangga Arya Pradana</span> {/* <-- Tambahkan kelas gradient-text */}
