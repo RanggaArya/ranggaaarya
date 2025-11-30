@@ -8,8 +8,11 @@ const HeroSection = () => {
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.heroContent}>
+        <h2 className={styles.title}>
+          Hello! &nbsp;I'm
+        </h2>
         <h1 className={styles.title}>
-          Halo, saya <span className="gradient-text">Rangga Arya Pradana</span> {/* <-- Tambahkan kelas gradient-text */}
+          <span className="gradient-text">Rangga Arya Pradana</span> {/* <-- Tambahkan kelas gradient-text */}
         </h1>
         {/* Ganti <p> dengan <TypeAnimation> */}
         <TypeAnimation
@@ -27,7 +30,7 @@ const HeroSection = () => {
           repeat={Infinity}
         />
         <div>
-          <Link href="#projects" className={styles.buttonPrimary}>
+          <Link href="#projects" className={styles.buttonSecondary}>
             Lihat Portofolio
           </Link>
           <Link href="#contact" className={styles.buttonSecondary}>

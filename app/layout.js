@@ -1,19 +1,30 @@
-import { Inter } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import ParticlesBackground from './components/ParticlesBackground' // <-- Import
+import ParticlesBackground from './components/ParticlesBackground'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans'
+})
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono'
+})
 
 export const metadata = {
-  title: 'Rangga Arya Pradana - Portfolio',
-  description: 'Portofolio pribadi dibuat dengan Next.js dan CSS Modules',
+  title: 'Rangga Arya Pradana - Portofolio',
+  description: 'Portofolio Pribadi',
+  icons: {
+    icon: '/profil.jpg',
+  },
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ParticlesBackground /> {/* <-- Tambahkan di sini */}
+    <html lang="id">
+      <body className={`${inter.variable} ${jetbrains.variable}`}>
+        <ParticlesBackground />
         {children}
       </body>
     </html>

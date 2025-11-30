@@ -1,0 +1,120 @@
+.skillsSection {
+    padding: 4rem 0;
+    background-color: var(--bg-glass);
+    /* Glass */
+    backdrop-filter: blur(1px);
+    /* Blur */
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.label {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+    /* Gradient Text Effect */
+    background: linear-gradient(135deg, var(--color-accent), #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: var(--text-primary);
+    /* Fallback */
+}
+
+.slider {
+    height: 90px;
+    /* Tinggi sedikit ditambah */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 70%;
+    /* Lebar sedikit ditambah */
+}
+
+/* Efek pudar di kiri kanan slider */
+.slider::before,
+.slider::after {
+    /* Gradientnya transparan ke transparent, bukan ke solid color */
+    background: linear-gradient(to right, var(--bg-primary) 0%, rgba(0, 0, 0, 0) 100%);
+    /* Atau hapus saja bagian ini jika ingin full transparan */
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+    top: 0;
+    pointer-events: none;
+}
+
+.slider::after {
+    right: 0;
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+}
+
+.slideTrack {
+    display: flex;
+    width: max-content;
+    /* Otomatis menyesuaikan lebar konten */
+    animation: scroll 35s linear infinite;
+}
+
+.slide {
+    width: 160px;
+    /* Jarak sedikit diperlebar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+    /* Warna default untuk text dan Next.js */
+    font-size: 2.2rem;
+    /* Icon sedikit diperbesar */
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 0 1rem;
+}
+
+/* Hapus hover color sebelumnya */
+/* .slide:hover { color: var(--color-accent); } */
+
+/* Ganti dengan efek membesar saat dihover */
+.slide:hover {
+    transform: scale(1.15);
+}
+
+/* Hanya nama tech stack yang berubah warna saat hover */
+.slide:hover .name {
+    color: var(--color-accent);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    /* Warna akan di-override oleh inline style di JS */
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    transition: color 0.3s ease;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Geser setengah karena kita duplikat array */
+}
