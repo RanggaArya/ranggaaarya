@@ -8,7 +8,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState('dark');
-  const [activeSection, setActiveSection] = useState('hero'); // Default active ke 'hero'
+  const [activeSection, setActiveSection] = useState('hero');
+  const [scrollProgress, setScrollProgress] = useState(0); // State baru untuk Progress Bar
 
   useEffect(() => {
     // --- Logic Tema ---
@@ -16,19 +17,29 @@ const Navbar = () => {
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-    // --- Logic Scroll Navbar Background ---
+    // --- Logic Scroll (Navbar Background & Progress Bar) ---
     const handleScroll = () => {
+      // 1. Navbar Glass Effect
       setScrolled(window.scrollY > 50);
+
+      // 2. Perhitungan Progress Bar (0% - 100%)
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+      if (height > 0) {
+        const scrolledTotal = (winScroll / height) * 100;
+        setScrollProgress(scrolledTotal);
+      } else {
+        setScrollProgress(0);
+      }
     };
     window.addEventListener('scroll', handleScroll);
 
     // --- Logic Active Link (Intersection Observer) ---
-    // Mengambil semua elemen <section> di halaman
     const sections = document.querySelectorAll('section');
 
     const observerOptions = {
       root: null,
-      // Margin ini membuat deteksi aktif terjadi saat section berada di tengah layar (-50%)
       rootMargin: '-50% 0px -50% 0px',
       threshold: 0
     };
@@ -60,13 +71,12 @@ const Navbar = () => {
 
   // Fungsi Scroll Halus Custom
   const handleNavClick = (e, id) => {
-    e.preventDefault(); // Mencegah loncat kasar default browser
-    setIsOpen(false); // Tutup menu mobile jika terbuka
+    e.preventDefault();
+    setIsOpen(false);
 
     const element = document.getElementById(id);
     if (element) {
-      // Hitung posisi offset agar tidak tertutup Navbar
-      const navbarHeight = 70; // Sesuaikan dengan tinggi navbar Anda
+      const navbarHeight = 70;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
@@ -75,9 +85,8 @@ const Navbar = () => {
         behavior: "smooth"
       });
 
-      setActiveSection(id); // Set aktif manual biar responsif instan
+      setActiveSection(id);
     } else if (id === 'hero') {
-      // Khusus untuk klik Logo/Home ke paling atas
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setActiveSection('hero');
     }
@@ -87,7 +96,7 @@ const Navbar = () => {
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.navContent}`}>
 
-        {/* Logo (Kiri) - Klik balik ke atas */}
+        {/* Logo (Kiri) */}
         <Link href="/" onClick={(e) => handleNavClick(e, 'hero')} className={styles.logo}>
           <img
             src="/icon.jpg"
@@ -97,12 +106,11 @@ const Navbar = () => {
           <span style={{ color: '#14a5aaff' }}> P O R T F O L I O</span>
         </Link>
 
-        {/* Container Kanan (Links + Divider + Toggle) */}
+        {/* Container Kanan */}
         <div className={styles.rightSection}>
 
           {/* Menu Links */}
           <div className={`${styles.navLinks} ${isOpen ? styles.mobileOpen : ''}`}>
-            {/* List Menu untuk memudahkan mapping */}
             {[
               { id: 'about', label: 'About Me' },
               { id: 'skills', label: 'Skills' },
@@ -119,7 +127,6 @@ const Navbar = () => {
               </a>
             ))}
 
-            {/* Resume tetap link biasa (External) */}
             <a
               href="/cv-rangga.pdf"
               target="_blank"
@@ -130,7 +137,7 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Garis Pembatas (Hanya di Desktop) */}
+          {/* Garis Pembatas */}
           <span className={styles.divider}>|</span>
 
           {/* Theme Toggle & Hamburger */}
@@ -150,6 +157,15 @@ const Navbar = () => {
 
         </div>
       </div>
+
+      {/* --- ELEMENT BARU: PROGRESS BAR --- */}
+      <div className={styles.progressBarContainer}>
+        <div
+          className={styles.progressBar}
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
     </nav>
   );
 };

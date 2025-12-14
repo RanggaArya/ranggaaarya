@@ -31,10 +31,10 @@ const HeroSection = () => {
         />
         <div>
           <Link href="#projects" className={styles.buttonSecondary}>
-            Lihat Portofolio
+            View Portfolio
           </Link>
           <Link href="#contact" className={styles.buttonSecondary}>
-            Hubungi Saya
+            Contact Me
           </Link>
         </div>
       </div>

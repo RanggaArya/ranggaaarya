@@ -15,7 +15,7 @@ const AboutSection = () => {
     // Tambahkan ref dan kelas animasi kondisional
     <section id="about" ref={ref} className={`${styles.aboutSection} ${inView ? 'fade-in-up' : ''}`}>
       <div className="container">
-        <h2 className={styles.title}>Tentang Saya</h2>
+        <h2 className={styles.title}>About Me</h2>
         <div className={styles.contentWrapper}>
           <div className={styles.avatarWrapper}>
             <Image

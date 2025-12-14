@@ -63,7 +63,7 @@ const ContactSection = () => {
       className={`${styles.contactSection} ${inView ? 'fade-in-up' : ''}`}
     >
       <div className="container">
-        <h2 className={styles.title}>Hubungi Saya</h2>
+        <h2 className={styles.title}>Contact Me</h2>
         <p className={styles.subtitle}>
           Saya selalu terbuka untuk diskusi, kolaborasi, atau peluang kerja. Jangan ragu untuk menghubungi saya!
         </p>
