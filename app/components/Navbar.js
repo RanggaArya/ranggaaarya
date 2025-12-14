@@ -35,7 +35,7 @@ const Navbar = () => {
 
         {/* Logo (Kiri) */}
         <Link href="/" className={styles.logo}>
-          <span style={{ color: '#00d4ff' }}> Rangga Arya Pradana</span>
+          <span style={{ color: '#00d4ff' }}> P O R T F O L I O</span>
         </Link>
 
         {/* Container Kanan (Links + Divider + Toggle) */}
@@ -45,7 +45,7 @@ const Navbar = () => {
           <div className={`${styles.navLinks} ${isOpen ? styles.mobileOpen : ''}`}>
             <Link href="#about" onClick={() => setIsOpen(false)}>About Me</Link>
             <Link href="#skills" onClick={() => setIsOpen(false)}>Skills</Link>
-            <Link href="#projects" onClick={() => setIsOpen(false)}>Portofolio</Link>
+            <Link href="#projects" onClick={() => setIsOpen(false)}>Projects</Link>
             <Link href="#contact" onClick={() => setIsOpen(false)}>Contact</Link>
 
             {/* Resume sekarang jadi link biasa */}

@@ -1,28 +1,21 @@
+/* ProjectsSection.module.css */
+
 .projectsSection {
   background-color: var(--bg-glass);
-  /* Glass */
   backdrop-filter: blur(1px);
-  /* Blur */
   -webkit-backdrop-filter: blur(1px);
   padding: 6rem 0;
   border-bottom: 1px solid var(--border-color);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-.projectsSection.inView {
-  opacity: 1;
-  transform: translateY(0);
+  overflow: hidden;
+  /* Mencegah scroll halaman horizontal */
 }
 
 .title {
   font-family: var(--font-mono);
-  /* Mempertahankan font coding */
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 
   /* Gradient Text Effect */
   background: linear-gradient(135deg, var(--color-accent), #a78bfa);
@@ -30,57 +23,43 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: var(--text-primary);
-  /* Fallback */
 }
 
-.projectsWrapper {
-  position: relative;
+/* --- SWIPER CONFIGURATION --- */
+.swiperContainer {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 60px;
+  /* Space untuk pagination */
+}
+
+.swiperSlide {
+  background-position: center;
+  background-size: cover;
+
+  /* UKURAN SAMA PERSIS DENGAN KODE LAMA */
+  width: 320px;
+  /* Mobile */
+  height: auto;
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  /* Agar tinggi kartu seragam */
+
+  transition: all 0.3s ease;
 }
 
-/* Container Scroll dengan Custom Scrollbar Cantik */
-.scrollContainer {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 2rem 1rem;
-  flex: 1;
-  /* Padding lebih besar biar shadow card ga kepotong */
-  scroll-snap-type: x mandatory;
-  /* Fitur wajib untuk swipe/geser */
-  -webkit-overflow-scrolling: touch;
-  /* Scrollbar Styling (Tipis & Modern) */
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-accent) transparent;
+/* DESKTOP: LEBAR 380px SESUAI PERMINTAAN */
+@media (min-width: 768px) {
+  .swiperSlide {
+    width: 380px;
+  }
 }
 
-.scrollContainer::-webkit-scrollbar {
-  height: 6px;
-}
+/* --- CARD STYLING (Code Lama) --- */
 
-.scrollContainer::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.scrollContainer::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
-  border-radius: 10px;
-  opacity: 0.5;
-}
-
-.scrollContainer::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
-}
-
-/* Card Style Baru (Glassmorphism) */
 .card {
-  flex-shrink: 0;
-  width: 380px;
-  /* Lebar ideal */
+  width: 100%;
   height: 100%;
+  /* Mengikuti tinggi slide tertinggi */
 
   background-color: var(--bg-card);
   backdrop-filter: blur(10px);
@@ -93,18 +72,22 @@
   display: flex;
   flex-direction: column;
 
+  /* Animasi hover asli */
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  /* Animasi membal */
-  cursor: grab;
-  scroll-snap-align: center;
-  /* Posisi berhenti scroll */
+  box-shadow: 0 4px 6px var(--shadow-color);
 }
 
-.card:active {
-  cursor: grabbing;
+/* EFEK 3D "MENONJOL" */
+/* Kartu tengah (Active) ditekankan dengan glow & border */
+.swiperSlide :global(.swiper-slide-active) .card {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.25);
+  transform: scale(1.02);
+  /* Sedikit membesar biar menonjol */
+  z-index: 10;
 }
 
-/* Hover Effect: Naik + Glowing Shadow */
+/* Hover Effect tetap ada */
 .card:hover {
   transform: translateY(-10px) scale(1.02);
   border-color: var(--color-accent);
@@ -115,6 +98,7 @@
   position: relative;
   width: 100%;
   height: 200px;
+  /* Ukuran asli kode lama */
   overflow: hidden;
 }
 
@@ -127,7 +111,6 @@
 
 .card:hover .cardImage {
   transform: scale(1.4);
-  /* Zoom effect gambar */
 }
 
 .cardOverlay {
@@ -164,9 +147,14 @@
   font-size: 0.95rem;
   line-height: 1.6;
   flex-grow: 1;
+  /* Batasi deskripsi agar kartu rapi */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Added tech stack container styling */
 .techStackContainer {
   display: flex;
   gap: 0.75rem;
@@ -179,6 +167,7 @@
   align-items: center;
   justify-content: center;
   width: 36px;
+  /* Ukuran asli */
   height: 36px;
   background: rgba(0, 212, 255, 0.1);
   border: 1px solid rgba(0, 212, 255, 0.2);
@@ -204,10 +193,8 @@
   margin-bottom: 1.5rem;
 }
 
-/* Tag dengan Gradient tipis */
 .tag {
   background: rgba(56, 189, 248, 0.1);
-  /* Transparan */
   color: var(--color-accent);
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
@@ -226,6 +213,7 @@
   gap: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
+  margin-top: auto;
 }
 
 .link {
@@ -246,7 +234,6 @@
   color: var(--color-accent);
   background: rgba(56, 189, 248, 0.1);
   transform: translateX(5px);
-  /* Geser dikit pas hover */
 }
 
 .swipeHint {
@@ -256,25 +243,4 @@
   color: var(--text-secondary);
   opacity: 0.7;
   letter-spacing: 1px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .card {
-    width: 300px;
-    /* Lebih ramping di HP */
-  }
-
-  .techStackContainer {
-    gap: 0.5rem;
-  }
-
-  .techIconWrapper {
-    width: 32px;
-    height: 32px;
-  }
-
-  .techIcon {
-    font-size: 1.2rem;
-  }
 }
