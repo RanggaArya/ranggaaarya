@@ -87,5 +87,5 @@
 .buttonSecondary:hover {
   background-color: var(--color-accent);
   color: var(--bg-primary);
-  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+  box-shadow: 0 15px 40px rgba(153, 9, 206, 0.5);
 }
