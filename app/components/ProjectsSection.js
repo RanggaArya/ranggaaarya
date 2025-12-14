@@ -19,7 +19,7 @@ import styles from './ProjectsSection.module.css';
 import {
   SiReact, SiNodedotjs, SiNextdotjs, SiJavascript, SiTypescript,
   SiLaravel, SiMysql, SiPython, SiFlutter, SiPhp, SiCss3,
-  SiFilament, SiHtml5
+  SiFilament, SiHtml5, SiCodeigniter, SiBootstrap
 } from "react-icons/si";
 
 const techStackIcons = {
@@ -27,7 +27,7 @@ const techStackIcons = {
   JavaScript: SiJavascript, TypeScript: SiTypescript, Laravel: SiLaravel,
   MySQL: SiMysql, Python: SiPython, Flutter: SiFlutter, Dart: SiFlutter,
   PHP: SiPhp, React: SiReact, PyTorch: SiPython, FastAPI: SiPython,
-  RAG: SiPython, CSS: SiCss3, Filament: SiFilament, HTML: SiHtml5,
+  RAG: SiPython, CSS: SiCss3, Filament: SiFilament, HTML: SiHtml5, CodeIgniter3: SiCodeigniter, Bootstrap5: SiBootstrap,
 };
 
 const projectsData = [
@@ -89,6 +89,16 @@ const projectsData = [
     tags: ['Java Script', 'TypeScript', 'CSS'],
     liveUrl: 'https://snakes-and-ladders-nine.vercel.app/',
     githubUrl: 'https://github.com/RanggaArya/snakes-and-ladders',
+    docUrl: null,
+  },
+  {
+    title: 'Aplikasi Help-Desk SIRS',
+    description: 'Website untuk mengelola panduan troubleshooting sistem informasi rumah sakit (SIRS) secara terstruktur dan mudah diakses oleh seluruh karyawan.',
+    image: '/panduan.png',
+    techStack: ["CodeIgniter3", "Bootstrap5", "MySQL"],
+    tags: ['Code Igniter 3', 'Bootstrap5', 'Mysql'],
+    liveUrl: 'https://panduan-sirs.infinityfree.me/',
+    githubUrl: null,
     docUrl: null,
   },
 ];

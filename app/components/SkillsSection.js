@@ -1,10 +1,10 @@
 'use client';
 
 import {
-    FaReact, FaNodeJs, FaJs, FaLaravel, FaPython, FaPhp, FaHtml5, FaCss3Alt
+    FaReact, FaNodeJs, FaJs, FaLaravel, FaPython, FaPhp, FaHtml5, FaCss3Alt,
 } from 'react-icons/fa';
 import {
-    SiNextdotjs, SiTypescript, SiMysql, SiFlutter, SiDart, SiFilament
+    SiNextdotjs, SiTypescript, SiMysql, SiFlutter, SiDart, SiFilament, SiCodeigniter, SiBootstrap
 } from 'react-icons/si';
 import styles from './SkillsSection.module.css';
 
@@ -25,6 +25,8 @@ const skills = [
     { name: 'HTML', icon: <FaHtml5 />, color: '#E34F26' },
     { name: 'CSS', icon: <FaCss3Alt />, color: '#1572B6' },
     { name: 'FilamentPHP', icon: <SiFilament />, color: '#F24E1E' },
+    { name: 'CodeIgniter', icon: <SiCodeigniter />, color: '#f03800ff' },
+    { name: 'Bootstrap', icon: <SiBootstrap />, color: '#8600baff' },
 ];
 
 const SkillsSection = () => {
