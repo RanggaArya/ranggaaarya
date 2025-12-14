@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 import styles from './Navbar.module.css';
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,12 @@ const Navbar = () => {
 
         {/* Logo (Kiri) */}
         <Link href="/" className={styles.logo}>
-          <span style={{ color: '#00d4ff' }}> P O R T F O L I O</span>
+          <img
+            src="/icon.jpg"
+            alt="Rangga"
+            className={styles.logoAvatar}
+          />
+          <span style={{ color: '#6e55a0ff' }}> P O R T F O L I O</span>
         </Link>
 
         {/* Container Kanan (Links + Divider + Toggle) */}
