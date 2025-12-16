@@ -57,7 +57,7 @@ const projectsData = [
     image: '/inven-it.png',
     techStack: ["Laravel", "Filament", "PHP", "JavaScript", "MySQL"],
     tags: ['Laravel', 'Filament', 'PHP', 'JavaScript', 'MySql'],
-    liveUrl: null,
+    liveUrl: 'https://siminta.infinityfree.me/',
     githubUrl: null,
     docUrl: null,
   },
